@@ -1,23 +1,30 @@
 import os
 import csv
 csvpath = os.path.join("..", "Resources", "election_data.csv")
-def print_percentage(candidate_data):
-    cname = str(candidate_data[0])
-    vwin = int(candidate_data[1])
-    vloss = int(candidate_data[2])
-total_votes = (vwin + vloss)
-vwin_percent = (vwin / total_votes)*100
-top_percent = 
+voterid = 0
+candidate = []
+count = []
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile)
     header = next(csvreader)
     for row in csvreader:
-        if 
-            print("Election Results")
+        newcandidate = row[2]
+        if not newcandidate in candidate:
+            candidate.append(newcandidate)
+            count.append(1)
+        else:
+            thisindex=candidate.index(newcandidate)
+            count[thisindex]= candidate.index(newcandidate)
+        
+        voterid = voterid + 1
+maxvotes = max(count)            
+print("Election Results")
 print("---------------------------------------------------------------------")
-print("Total Votes: ", sum(voterid))
+print("Total Votes: ", (voterid))
 print("---------------------------------------------------------------------")
-print("List of top 4 candidates", max(candidate), )
+print("List of top 4 candidates" )
+for x in range(len(candidate)):
+        print(candidate[x], count[x])
 print("---------------------------------------------------------------------")
-print("Winner: ", max(candidate))
+print("Winner: ")
 print("---------------------------------------------------------------------")
